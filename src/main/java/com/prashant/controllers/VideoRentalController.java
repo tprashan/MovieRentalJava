@@ -25,8 +25,15 @@ public class VideoRentalController {
     public List<Movie> getMovies(@RequestParam Map<String,String> params) throws IOException {
         VideoRental rental = new VideoRental(params);
         List<Movie> rentalMovies = rental.getMovies();
-        movieRepository.save(rentalMovies);
         return rentalMovies;
+    }
+
+    @RequestMapping("/insertMovies")
+    public int insertMovies(@RequestParam Map<String,String> params) throws IOException {
+        VideoRental rental = new VideoRental(params);
+        List<Movie> rentalMovies = rental.getMovies();
+        movieRepository.save(rentalMovies);
+        return rentalMovies.size();
     }
 
     @RequestMapping("/allMoviesFromDb")
