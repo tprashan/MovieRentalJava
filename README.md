@@ -1,2 +1,2 @@
-# MovieRentalJava
-Java Practices 
+.DS_Store
+.idea/
