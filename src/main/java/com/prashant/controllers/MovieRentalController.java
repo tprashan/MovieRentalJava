@@ -68,8 +68,9 @@ public class MovieRentalController {
     }
 
     @DeleteMapping("/removeMovie/{id}")
-    public void delete(@PathVariable String id) {
+    public String delete(@PathVariable String id) {
         movieRentalService.deleteMovie(id);
+        return "deleted";
     }
 
 //    @RequestMapping("/moviesss")
