@@ -201,6 +201,4 @@ public class MovieRentalControllerSpec {
 
         assertEquals(result.getResponse().getContentAsString(), "deleted");
     }
-
-
 }

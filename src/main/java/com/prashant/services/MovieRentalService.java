@@ -41,8 +41,8 @@ public class MovieRentalService {
 
     public int insertMoviesIntoDBFromFile() throws IOException {
         List<Movie> rentalMovies = loadMoviesFromFile();
-        movieRepository.save(rentalMovies);
-        return rentalMovies.size();
+        List<Movie> saved = movieRepository.save(rentalMovies);
+        return saved.size();
     }
 
     public List getAllMoviesFromDB() {
@@ -62,7 +62,7 @@ public class MovieRentalService {
     }
 
     public void updateColumn(String id, String year) {
-        movieRepository.updateColumn(id,year);
+        movieRepository.updateColumn(id, year);
     }
 
     public void deleteMovie(String id) {
