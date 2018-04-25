@@ -1,7 +1,6 @@
 package com.prashant.controllers;
 
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.prashant.model.Movie;
 import com.prashant.services.MovieRentalService;
 import org.junit.Test;
@@ -18,13 +17,12 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = MovieRentalController.class)
+@WebMvcTest(value = MovieRentalController.class, secure = false)
 public class MovieRentalControllerSpec {
     @Autowired
     private MockMvc mockMvc;
@@ -33,9 +31,9 @@ public class MovieRentalControllerSpec {
     private MovieRentalService movieRentalService;
 
     @Test
-    public void whenNumber_thenAutoType() throws Exception {
-        Movie movie1 = new Movie("4261,Adventure,Iron Will (1994)");
-        Movie movie2 = new Movie("5239,Adventure,Prince Valiant (1954)");
+    public void shouldGetTheListOfMovies() throws Exception {
+        Movie movie1 = new Movie("5357,Iron Will (1994),Adventure");
+        Movie movie2 = new Movie("8654,Prince Valiant (1954),Adventure");
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
         movieList.add(movie2);
@@ -48,8 +46,9 @@ public class MovieRentalControllerSpec {
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
-        String expected = "[[ \"4261\", \"Adventure\", \"Iron Will (1994)\" ], [ \"5239\", \"Adventure\", \"Prince Valiant (1954)\" ]]";
+        String expected = "[{\"genre\":\"Adventure\",\"title\":\"Iron Will (1994)\",\"year\":\"1994\"}," +
+                "{\"genre\":\"Adventure\",\"title\":\"Prince Valiant (1954)\",\"year\":\"1954\"}]";
 
-        JSONAssert.assertEquals("[]", Arrays.toString(result.getResponse().getContentAsByteArray()), false);
+        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
     }
 }
