@@ -16,8 +16,8 @@ public interface MovieRepository extends JpaRepository<Movie, String> {
     @Query(value= "SELECT ID, GENRE, TITLE FROM MOVIE where GENRE = :GENRE", nativeQuery = true)
     List<String> findMovieByGenre(@Param("GENRE") String genre);
 
-    @Query(value= "SELECT ID, GENRE, TITLE FROM MOVIE where MOVIEYEAR = :MOVIEYEAR", nativeQuery = true)
-    List<String> findMovieByYear(@Param("MOVIEYEAR") String movieyear);
+    @Query(value= "SELECT * FROM MOVIE where MOVIEYEAR = :MOVIEYEAR", nativeQuery = true)
+    List<Movie> findMovieByYear(@Param("MOVIEYEAR") String movieyear);
 
     @Transactional
     @Modifying

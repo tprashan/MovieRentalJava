@@ -44,4 +44,36 @@ public class MovieRentalControllerITSpec {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(9125, response.getBody().size());
     }
+
+    @Test
+    public void testRetrieveNumberOfInsertedMovies() {
+        restTemplate.getInterceptors().add(
+                new BasicAuthorizationInterceptor("prashant", "password"));
+
+        ResponseEntity<Integer> response = restTemplate.exchange(
+                createURLWithPort("/stockMovies"),
+                HttpMethod.GET, null, Integer.class);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(Integer.valueOf(9125), response.getBody());
+    }
+
+//    @Test
+//    public void testRetrieveAllMoviesFromDB() {
+//        //TODO: How to make it workable with database H2 ?
+//        restTemplate.getInterceptors().add(
+//                new BasicAuthorizationInterceptor("prashant", "password"));
+//
+//        ResponseEntity<Integer> response = restTemplate.exchange(
+//                createURLWithPort("/stockMovies"),
+//                HttpMethod.GET, null, Integer.class);
+//
+//        System.out.println("port 2 = " + port);
+//        ResponseEntity<List> response1 = restTemplate.exchange(
+//                createURLWithPort("/allMoviesFromDb"),
+//                HttpMethod.GET, null, List.class);
+//
+//        assertEquals(HttpStatus.OK, response.getStatusCode());
+//        assertEquals(9125 , response1.getBody().size());
+//    }
 }
