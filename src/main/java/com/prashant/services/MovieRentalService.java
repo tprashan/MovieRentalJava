@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,9 +25,10 @@ public class MovieRentalService {
 
     private List<Movie> loadMoviesFromFile() throws IOException {
         String fileName = "/Users/prashanttripathi/Downloads/ml-latest-small/movies.csv";
+        Random random = new Random();
         return Files.lines(Paths.get(fileName))
                 .skip(1)
-                .map(Movie::new)
+                .map(m -> new Movie(m, random.nextBoolean()))
                 .sorted(Comparator.comparing(Movie::getTitle))
                 .collect(Collectors.toList());
     }

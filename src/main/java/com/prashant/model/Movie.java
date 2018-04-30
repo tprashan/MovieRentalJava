@@ -16,16 +16,19 @@ public class Movie {
     private String title;
     @Column(name = "MOVIEYEAR")
     private String year;
+    @Column(name="TRENDING")
+    private Boolean trending;
 
     public Movie() {
     }
 
-    public Movie(String movie) {
+    public Movie(String movie, Boolean trending) {
         this.movie = movie;
         this.id = movie.split(",")[0];
         this.genre = setMovieGenere();
         this.title = setMovieTitle();
         this.year = setMovieYear();
+        this.trending = trending;
     }
 
     private String setMovieYear() {
@@ -77,5 +80,13 @@ public class Movie {
 
     public String getYear() {
         return this.year;
+    }
+
+    public Boolean getTrending() {
+        return trending;
+    }
+
+    public void setTrending(Boolean trending) {
+        this.trending = trending;
     }
 }
