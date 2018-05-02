@@ -34,10 +34,11 @@ public class MovieRentalControllerSpec {
     @MockBean
     private MovieRentalService movieRentalService;
 
+    Movie movie1 = new Movie("5357,Iron Will (1994),Adventure",true);
+    Movie movie2 = new Movie("8654,Prince Valiant (1954),Adventure",true);
+
     @Test
     public void shouldGetTheListOfMoviesFromFile() throws Exception {
-        Movie movie1 = new Movie("5357,Iron Will (1994),Adventure");
-        Movie movie2 = new Movie("8654,Prince Valiant (1954),Adventure");
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
         movieList.add(movie2);
@@ -72,8 +73,6 @@ public class MovieRentalControllerSpec {
 
     @Test
     public void shouldGetTheListOfMoviesFromDB() throws Exception {
-        Movie movie1 = new Movie("5357,Iron Will (1994),Adventure");
-        Movie movie2 = new Movie("8654,Prince Valiant (1954),Adventure");
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
         movieList.add(movie2);
@@ -94,7 +93,6 @@ public class MovieRentalControllerSpec {
 
     @Test
     public void shouldGetTheListOfMoviesOfcertainGenre() throws Exception {
-        Movie movie1 = new Movie("5357,Iron Will (1994),Adventure");
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
 
@@ -114,7 +112,6 @@ public class MovieRentalControllerSpec {
 
     @Test
     public void shouldGetTheListOfMoviesOfcertainYear() throws Exception {
-        Movie movie1 = new Movie("5357,Iron Will (1994),Adventure");
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
 
@@ -134,7 +131,6 @@ public class MovieRentalControllerSpec {
 
     @Test
     public void shouldGetTheListOfMoviesOfcertainYearByUsingGetMapping() throws Exception {
-        Movie movie1 = new Movie("5357,Iron Will (1994),Adventure");
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
 
@@ -153,8 +149,7 @@ public class MovieRentalControllerSpec {
 
     @Test
     public void shouldCallAddMovieToDB() throws Exception {
-        Movie movie = new Movie("5357,Iron Will (1994),Adventure");
-        doNothing().when(movieRentalService).addMovieToDB(movie);
+        doNothing().when(movieRentalService).addMovieToDB(movie1);
 
         String bodyJson = "{ \"genre\": \"Adventure\", \"title\": \"Iron Will (1994)\", \"year\": \"1994\" }";
 

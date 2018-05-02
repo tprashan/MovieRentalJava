@@ -2,6 +2,7 @@ package com.prashant.controllers;
 
 import com.prashant.model.Movie;
 import com.prashant.services.MovieRentalService;
+import com.prashant.viewModels.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,6 +50,16 @@ public class MovieRentalController {
     }
 
     //TODO : using specific HTTP Verb request
+
+    @GetMapping("/movies")
+    public List trendingMovies(@RequestParam("trending") Boolean trending) {
+        return movieRentalService.findTrendingMovie(trending);
+    }
+
+    @GetMapping("/moviesSummary")
+    public Summary moviesSummary() {
+        return movieRentalService.getSummary();
+    }
 
     @GetMapping("/usersMovie/{year}")
     public List show(@PathVariable("year") String movieYear) {

@@ -74,6 +74,6 @@ public class MovieRentalControllerITSpec {
 //                HttpMethod.GET, null, List.class);
 //
 //        assertEquals(HttpStatus.OK, response.getStatusCode());
-//        assertEquals(9125 , response1.getBody().size());
+//        assertEquals(6442 , response1.getBody().size());
 //    }
 }

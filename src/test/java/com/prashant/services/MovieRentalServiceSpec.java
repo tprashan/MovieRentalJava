@@ -42,7 +42,7 @@ public class MovieRentalServiceSpec {
 
     @Test
     public void shouldReturnNumberOfInsertedMoviesIntoDB() throws IOException {
-        Movie movie = new Movie("5357,Iron Will (1994),Adventure");
+        Movie movie = new Movie("5357,Iron Will (1994),Adventure", true);
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie);
 

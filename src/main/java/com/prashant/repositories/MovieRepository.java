@@ -19,6 +19,9 @@ public interface MovieRepository extends JpaRepository<Movie, String> {
     @Query(value= "SELECT * FROM MOVIE where MOVIEYEAR = :MOVIEYEAR", nativeQuery = true)
     List<Movie> findMovieByYear(@Param("MOVIEYEAR") String movieyear);
 
+    @Query(value= "SELECT * FROM MOVIE where TRENDING = :TRENDING", nativeQuery = true)
+    List<Movie> findTrendingMovie(@Param("TRENDING") Boolean trending);
+
     @Transactional
     @Modifying
     @Query(value= "UPDATE MOVIE m SET m.MOVIEYEAR = ?2 where m.ID = ?1", nativeQuery = true)

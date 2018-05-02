@@ -2,12 +2,14 @@ package com.prashant.services;
 
 import com.prashant.model.Movie;
 import com.prashant.repositories.MovieRepository;
+import com.prashant.viewModels.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
@@ -31,6 +33,12 @@ public class MovieRentalService {
                 .map(m -> new Movie(m, random.nextBoolean()))
                 .sorted(Comparator.comparing(Movie::getTitle))
                 .collect(Collectors.toList());
+    }
+
+    private List<String> movieIds() throws IOException {
+        List<String> ids = new ArrayList<>();
+        loadMoviesFromFile().forEach(movie -> ids.add(movie.getId()));
+        return ids;
     }
 
     public String retriveWelcomeMessage() {
@@ -57,6 +65,18 @@ public class MovieRentalService {
 
     public List findMovieByYear(String year) {
         return movieRepository.findMovieByYear(year);
+    }
+
+    public List findTrendingMovie(Boolean trending) {
+        return movieRepository.findTrendingMovie(trending);
+    }
+
+    public Summary getSummary() {
+        int totalMovies = getAllMoviesFromDB().size();
+        int trendingMovies = findTrendingMovie(true).size();
+        int nonTrendingMovies = findTrendingMovie(false).size();
+
+        return new Summary(totalMovies,trendingMovies,nonTrendingMovies);
     }
 
     public void addMovieToDB(Movie request) {

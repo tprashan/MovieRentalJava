@@ -1,6 +1,7 @@
 package com.prashant.model;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
 public class Movie {
@@ -82,11 +83,20 @@ public class Movie {
         return this.year;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
     public Boolean getTrending() {
         return trending;
     }
 
     public void setTrending(Boolean trending) {
         this.trending = trending;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(new String[]{this.id, this.genre, this.title, this.year});
     }
 }
