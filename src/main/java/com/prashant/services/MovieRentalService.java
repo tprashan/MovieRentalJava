@@ -76,7 +76,7 @@ public class MovieRentalService {
         int trendingMovies = findTrendingMovie(true).size();
         int nonTrendingMovies = findTrendingMovie(false).size();
 
-        return new Summary(totalMovies,trendingMovies,nonTrendingMovies);
+        return new Summary(totalMovies, trendingMovies, nonTrendingMovies);
     }
 
     public void addMovieToDB(Movie request) {

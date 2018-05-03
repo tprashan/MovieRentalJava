@@ -32,8 +32,6 @@ public class MovieRentalControllerITSpec {
 
     @Test
     public void testRetrieveAllMoviesFromFile() throws JSONException {
-//        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-
         restTemplate.getInterceptors().add(
                 new BasicAuthorizationInterceptor("prashant", "password"));
 
@@ -60,7 +58,6 @@ public class MovieRentalControllerITSpec {
 
     @Test
     public void testRetrieveAllMoviesFromDB() {
-        //TODO: How to make it workable with database H2 ?
         restTemplate.getInterceptors().add(
                 new BasicAuthorizationInterceptor("prashant", "password"));
 
@@ -68,12 +65,11 @@ public class MovieRentalControllerITSpec {
                 createURLWithPort("/stockMovies"),
                 HttpMethod.GET, null, Integer.class);
 
-        System.out.println("port 2 = " + port);
         ResponseEntity<List> response1 = restTemplate.exchange(
                 createURLWithPort("/allMoviesFromDb"),
                 HttpMethod.GET, null, List.class);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(200 , response1.getBody().size());
+        assertEquals(200, response1.getBody().size());
     }
 }
