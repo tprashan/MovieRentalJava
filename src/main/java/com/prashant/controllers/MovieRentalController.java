@@ -40,12 +40,12 @@ public class MovieRentalController {
     }
 
     @RequestMapping("/moviesbyGenre")
-    public List getMoviesByGenre(@RequestParam(value="genre") String genre){
+    public List getMoviesByGenre(@RequestParam(value = "genre") String genre) {
         return movieRentalService.findMovieByGenre(genre);
     }
 
     @RequestMapping("/moviesbyYear")
-    public List getMoviesByYear(@RequestParam(value="year") String year){
+    public List getMoviesByYear(@RequestParam(value = "year") String year) {
         return movieRentalService.findMovieByYear(year);
     }
 
@@ -74,7 +74,7 @@ public class MovieRentalController {
 
     @PutMapping("/updateMovie/{id}")
     public String update(@PathVariable String id, @RequestBody Movie request) {
-        movieRentalService.updateColumn(id,request.getYear());
+        movieRentalService.updateColumn(id, request.getYear());
         return "updated";
     }
 

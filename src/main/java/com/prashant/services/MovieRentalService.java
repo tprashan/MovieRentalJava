@@ -25,12 +25,31 @@ public class MovieRentalService {
         this.movieRepository = movieRepository;
     }
 
+    private String getMovieGenre(String movie) {
+        String[] movieStatus = movie.split(",");
+        return movieStatus[movieStatus.length - 1];
+    }
+
+    private String getMovieTitle(String movie) {
+        String[] movieStatus = movie.split(",");
+        return movieStatus.length == 3 ? movieStatus[1] : movieStatus[2];
+    }
+
+    private String getMovieYear(String movie) {
+        String[] seperateTitle = getMovieTitle(movie).split("\\(");
+        return seperateTitle.length > 1 ? seperateTitle[1].split("\\)")[0] : "None";
+    }
+
+    private String getMovieId(String movie) {
+        return movie.split(",")[0];
+    }
+
     private List<Movie> loadMoviesFromFile() throws IOException {
         String fileName = "/Users/prashanttripathi/Documents/projects/javaPractices/movierental/src/main/resources/s-movies.csv";
         Random random = new Random();
         return Files.lines(Paths.get(fileName))
                 .skip(1)
-                .map(m -> new Movie(m, random.nextBoolean()))
+                .map(m -> new Movie(getMovieId(m), getMovieGenre(m), getMovieTitle(m), getMovieYear(m), random.nextBoolean()))
                 .sorted(Comparator.comparing(Movie::getTitle))
                 .collect(Collectors.toList());
     }

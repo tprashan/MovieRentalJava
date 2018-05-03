@@ -1,6 +1,9 @@
 package com.prashant.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.Arrays;
 
 @Entity
@@ -16,34 +19,18 @@ public class Movie {
     private String title;
     @Column(name = "MOVIEYEAR")
     private String year;
-    @Column(name="TRENDING")
+    @Column(name = "TRENDING")
     private Boolean trending;
 
     public Movie() {
     }
 
-    public Movie(String movie, Boolean trending) {
-        this.movie = movie;
-        this.id = movie.split(",")[0];
-        this.genre = setMovieGenere();
-        this.title = setMovieTitle();
-        this.year = setMovieYear();
+    public Movie(String id, String movieGenre, String movieTitle, String movieYear, boolean trending) {
+        this.id = id;
+        this.genre = movieGenre;
+        this.title = movieTitle;
+        this.year = movieYear;
         this.trending = trending;
-    }
-
-    private String setMovieYear() {
-        String[] seperateTitle = this.title.split("\\(");
-        return seperateTitle.length > 1 ? seperateTitle[1].split("\\)")[0] : "None";
-    }
-
-    private String setMovieGenere() {
-        String[] movieStatus = movie.split(",");
-        return movieStatus[movieStatus.length - 1];
-    }
-
-    private String setMovieTitle() {
-        String[] movieStatus = movie.split(",");
-        return movieStatus.length == 3 ? movieStatus[1] : movieStatus[2];
     }
 
     public Boolean hasMovieGenreType(String genreParam) {
@@ -58,15 +45,15 @@ public class Movie {
         return titleParam == null || this.title.contains(titleParam);
     }
 
-    public void setGenre(String genre){
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 
-    public void setYear(String year){
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
 

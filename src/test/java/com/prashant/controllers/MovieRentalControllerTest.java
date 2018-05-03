@@ -33,9 +33,8 @@ public class MovieRentalControllerTest {
 
     @MockBean
     private MovieRentalService movieRentalService;
-
-    Movie movie1 = new Movie("5357,Iron Will (1994),Adventure",true);
-    Movie movie2 = new Movie("8654,Prince Valiant (1954),Adventure",true);
+    Movie movie1 = new Movie("5357", "Adventure", "Iron Will (1994)", "1994", true);
+    Movie movie2 = new Movie("8654", "Adventure", "Prince Valiant (1954)", "1954", true);
 
     @Test
     public void shouldGetTheListOfMoviesFromFile() throws Exception {
