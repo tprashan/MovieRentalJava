@@ -37,7 +37,7 @@ public class MovieRentalServiceSpec {
         List<Movie> actualList = movieRentalService.getAllMoviesFromFile();
         int numberOfMovies = actualList.size();
 
-        assertEquals(9125, numberOfMovies);
+        assertEquals(200, numberOfMovies);
     }
 
     @Test

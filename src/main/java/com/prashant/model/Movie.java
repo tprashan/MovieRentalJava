@@ -9,7 +9,6 @@ public class Movie {
     @Transient
     private String movie;
     @Id
-    @GeneratedValue()
     private String id;
     @Column(name = "GENRE")
     private String genre;

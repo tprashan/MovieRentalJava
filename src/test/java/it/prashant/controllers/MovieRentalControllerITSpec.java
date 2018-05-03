@@ -42,7 +42,7 @@ public class MovieRentalControllerITSpec {
                 HttpMethod.GET, null, List.class);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(9125, response.getBody().size());
+        assertEquals(200, response.getBody().size());
     }
 
     @Test
@@ -55,25 +55,25 @@ public class MovieRentalControllerITSpec {
                 HttpMethod.GET, null, Integer.class);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(Integer.valueOf(9125), response.getBody());
+        assertEquals(Integer.valueOf(200), response.getBody());
     }
 
-//    @Test
-//    public void testRetrieveAllMoviesFromDB() {
-//        //TODO: How to make it workable with database H2 ?
-//        restTemplate.getInterceptors().add(
-//                new BasicAuthorizationInterceptor("prashant", "password"));
-//
-//        ResponseEntity<Integer> response = restTemplate.exchange(
-//                createURLWithPort("/stockMovies"),
-//                HttpMethod.GET, null, Integer.class);
-//
-//        System.out.println("port 2 = " + port);
-//        ResponseEntity<List> response1 = restTemplate.exchange(
-//                createURLWithPort("/allMoviesFromDb"),
-//                HttpMethod.GET, null, List.class);
-//
-//        assertEquals(HttpStatus.OK, response.getStatusCode());
-//        assertEquals(6442 , response1.getBody().size());
-//    }
+    @Test
+    public void testRetrieveAllMoviesFromDB() {
+        //TODO: How to make it workable with database H2 ?
+        restTemplate.getInterceptors().add(
+                new BasicAuthorizationInterceptor("prashant", "password"));
+
+        ResponseEntity<Integer> response = restTemplate.exchange(
+                createURLWithPort("/stockMovies"),
+                HttpMethod.GET, null, Integer.class);
+
+        System.out.println("port 2 = " + port);
+        ResponseEntity<List> response1 = restTemplate.exchange(
+                createURLWithPort("/allMoviesFromDb"),
+                HttpMethod.GET, null, List.class);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(200 , response1.getBody().size());
+    }
 }

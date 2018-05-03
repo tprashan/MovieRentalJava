@@ -26,7 +26,7 @@ public class MovieRentalService {
     }
 
     private List<Movie> loadMoviesFromFile() throws IOException {
-        String fileName = "/Users/prashanttripathi/Downloads/ml-latest-small/movies.csv";
+        String fileName = "/Users/prashanttripathi/Documents/projects/javaPractices/movierental/src/main/resources/s-movies.csv";
         Random random = new Random();
         return Files.lines(Paths.get(fileName))
                 .skip(1)
