@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = MovieRentalController.class, secure = false)
-public class MovieRentalControllerSpec {
+public class MovieRentalControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
