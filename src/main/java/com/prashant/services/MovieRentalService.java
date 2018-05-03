@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,10 +42,17 @@ public class MovieRentalService {
         return movie.split(",")[0];
     }
 
+    private String getFileName() throws IOException {
+        Properties prop = new Properties();
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        InputStream stream = loader.getResourceAsStream("dev.properties");
+        prop.load(stream);
+        return prop.getProperty("MovieFilePath");
+    }
+
     private List<Movie> loadMoviesFromFile() throws IOException {
-        String fileName = "/Users/prashanttripathi/Documents/projects/javaPractices/movierental/src/main/resources/s-movies.csv";
         Random random = new Random();
-        return Files.lines(Paths.get(fileName))
+        return Files.lines(Paths.get(getFileName()))
                 .skip(1)
                 .map(m -> new Movie(getMovieId(m), getMovieGenre(m), getMovieTitle(m), getMovieYear(m), random.nextBoolean()))
                 .sorted(Comparator.comparing(Movie::getTitle))
@@ -70,8 +75,7 @@ public class MovieRentalService {
 
     public int insertMoviesIntoDBFromFile() throws IOException {
         List<Movie> rentalMovies = loadMoviesFromFile();
-        List<Movie> saved = movieRepository.save(rentalMovies);
-        return saved.size();
+        return movieRepository.save(rentalMovies).size();
     }
 
     public List getAllMoviesFromDB() {
