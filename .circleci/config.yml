@@ -18,7 +18,7 @@ jobs:
       - save_cache:
           paths:
             - ~/.maven
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+          key: movierental-{{ checksum "pom.xml" }}
 
       # run tests
       - run:
@@ -50,7 +50,7 @@ jobs:
 
   workflows:
     version: 2
-    build-test-and-deploy:
+    build-test-deploy:
       jobs:
         - build
         - deploy-to-qa:
