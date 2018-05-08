@@ -52,7 +52,9 @@ public class MovieRentalService {
 
     private List<Movie> loadMoviesFromFile() throws IOException {
         Random random = new Random();
-        return Files.lines(Paths.get(getFileName()))
+        String moviesFile = Paths.get("").toAbsolutePath().toString() + getFileName();
+
+        return Files.lines(Paths.get(moviesFile))
                 .skip(1)
                 .map(m -> new Movie(getMovieId(m), getMovieGenre(m), getMovieTitle(m), getMovieYear(m), random.nextBoolean()))
                 .sorted(Comparator.comparing(Movie::getTitle))
