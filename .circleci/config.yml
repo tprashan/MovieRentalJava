@@ -1,0 +1,31 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+      - run: sudo apt-get update
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+          - movierental-{{ checksum "pom.xml" }}
+
+      - run: mvn clean compile
+
+      - save_cache:
+          paths:
+            - ~/.maven
+          key: v1-dependencies-{{ checksum "pom.xml" }}
+
+      # run tests
+      - run:
+          name: test
+          command: |
+              mvn test
+
+
+
+
