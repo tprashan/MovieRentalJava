@@ -48,18 +48,18 @@ jobs:
                   mvn test
                 fi
 
-  workflows:
-    version: 2
-    build-test-deploy:
-      jobs:
-        - build
-        - deploy-to-qa:
-            requires:
-              - build
-        - deploy-to-staging:
-            type: approval
-            requires:
-              - deploy-to-qa
-        - staging:
-            requires:
-              - deploy-to-staging
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build
+      - deploy-to-qa:
+          requires:
+            - build
+      - deploy-to-staging:
+          type: approval
+          requires:
+            - deploy-to-qa
+      - staging:
+          requires:
+            - deploy-to-staging
