@@ -1,9 +1,9 @@
 movieId,title,genres
-1,Toy Story (1995),Adventure
-2,Jumanji (1995),Adventure
-3,Grumpier Old Men (1995),Comedy
-4,Waiting to Exhale (1995),Comedy
-5,Father of the Bride Part II (1995),Comedy
+1,Toy Story (1993),Adventure
+2,Jumanji (1993),Adventure
+3,Grumpier Old Men (1993),Comedy
+4,Waiting to Exhale (1993),Comedy
+5,Father of the Bride Part II (1993),Comedy
 6,Heat (1995),Action
 7,Sabrina (1995),Comedy
 8,Tom and Huck (1995),Adventure
@@ -11,43 +11,43 @@ movieId,title,genres
 10,GoldenEye (1995),Action
 11,American President The (1995),Comedy
 12,Dracula: Dead and Loving It (1995),Comedy
-13,Balto (1995),Adventure
-14,Nixon (1995),Drama
-15,Cutthroat Island (1995),Action
-16,Casino (1995),Crime
-17,Sense and Sensibility (1995),Drama
-18,Four Rooms (1995),Comedy
-19,Ace Ventura: When Nature Calls (1995),Comedy
-20,Money Train (1995),Action
-21,Get Shorty (1995),Comedy
-22,Copycat (1995),Crime
-23,Assassins (1995),Action
-24,Powder (1995),Drama
-25,Leaving Las Vegas (1995),Drama
-26,Othello (1995),Drama
-27,Now and Then (1995),Children
-28,Persuasion (1995),Drama
+13,Balto (1994),Adventure
+14,Nixon (1994),Drama
+15,Cutthroat Island (1994),Action
+16,Casino (1994),Crime
+17,Sense and Sensibility (1994),Drama
+18,Four Rooms (1994),Comedy
+19,Ace Ventura: When Nature Calls (1994),Comedy
+20,Money Train (1994),Action
+21,Get Shorty (1994),Comedy
+22,Copycat (1994),Crime
+23,Assassins (1994),Action
+24,Powder (1994),Drama
+25,Leaving Las Vegas (1994),Drama
+26,Othello (1994),Drama
+27,Now and Then (1994),Children
+28,Persuasion (1994),Drama
 29,City of Lost Children The Cité des enfants perdus La (1995),Adventure
 30,Shanghai Triad Yao a yao yao dao waipo qiao (1995),Crime
-31,Dangerous Minds (1995),Drama
+31,Dangerous Minds (1994),Drama
 32,Twelve Monkeys ** a.k.a. 12 Monkeys ** (1995),Mystery
-34,Babe (1995),Children
-35,Carrington (1995),Drama
-36,Dead Man Walking (1995),Crime
-37,Across the Sea of Time (1995),Documentary
-38,It Takes Two (1995),Children
-39,Clueless (1995),Comedy
+34,Babe (1994),Children
+35,Carrington (1994),Drama
+36,Dead Man Walking (1994),Crime
+37,Across the Sea of Time (1994),Documentary
+38,It Takes Two (1994),Children
+39,Clueless (1994),Comedy
 40,Cry the Beloved Country (1995),Drama
-41,Richard III (1995),Drama
-42,Dead Presidents (1995),Action
-43,Restoration (1995),Drama
-44,Mortal Kombat (1995),Action
+41,Richard III (1994),Drama
+42,Dead Presidents (1994),Action
+43,Restoration (1994),Drama
+44,Mortal Kombat (1994),Action
 45,To Die For (1996),Comedy
 46,How to Make an American Quilt (1995),Drama
-47,Seven a.k.a. Se7en (1995),Mystery
-48,Pocahontas (1995),Animation
-49,When Night Is Falling (1995),Drama
-50,Usual Suspects The (1995),Crime
+47,Seven a.k.a. Se7en (1996),Mystery
+48,Pocahontas (1996),Animation
+49,When Night Is Falling (1996),Drama
+50,Usual Suspects The (1996),Crime
 52,Mighty Aphrodite (1992),Comedy
 53,Lamerica (1994),Adventure
 54,Big Green The (1995),Children
@@ -162,40 +162,40 @@ movieId,title,genres
 181,Mighty Morphin Power Rangers: The Movie (1995),Action
 183,Mute Witness (1994),Comedy
 184,Nadja (1994),Drama
-185,Net The (1995),Action
-186,Nine Months (1995),Comedy
-187,Party Girl (1995),Comedy
-188,Prophecy The (1995),Fantasy
-189,Reckless (1995),Comedy
-190,Safe (1995),Thriller
-191,Scarlet Letter The (1995),Drama
-193,Showgirls (1995),Drama
-194,Smoke (1995),Comedy
-195,Something to Talk About (1995),Comedy
-196,Species (1995),Horror
-198,Strange Days (1995),Action
+185,Net The (1967),Action
+186,Nine Months (1967),Comedy
+187,Party Girl (1967),Comedy
+188,Prophecy The (1974),Fantasy
+189,Reckless (1974),Comedy
+190,Safe (1976),Thriller
+191,Scarlet Letter The (1976),Drama
+193,Showgirls (1976),Drama
+194,Smoke (1976),Comedy
+195,Something to Talk About (1976),Comedy
+196,Species (1992),Horror
+198,Strange Days (1992),Action
 199,Umbrellas of Cherbourg The Parapluies de Cherbourg Les (1964),Drama
-200,Tie That Binds The (1995),Thriller
-201,Three Wishes (1995),Drama
-202,Total Eclipse (1995),Drama
+200,Tie That Binds The (1992),Thriller
+201,Three Wishes (1992),Drama
+202,Total Eclipse (1992),Drama
 203,To Wong Foo, Thanks for Everything! Julie Newmar (1995),Comedy
 204,Under Siege 2: Dark Territory (1995),Action
-205,Unstrung Heroes (1995),Comedy
-206,Unzipped (1995),Documentary
+205,Unstrung Heroes (1992),Comedy
+206,Unzipped (1992),Documentary
 207,Walk in the Clouds A (1995),Drama
-208,Waterworld (1995),Action
-209,White Man's Burden (1995),Drama
+208,Waterworld (1993),Action
+209,White Man's Burden (1993),Drama
 211,Browning Version The (1994),Drama
 213,Burnt by the Sun Utomlyonnye solntsem (1994),Drama
 214,Before the Rain Pred dozhdot (1994),Drama
-215,Before Sunrise (1995),Drama
-216,Billy Madison (1995),Comedy
-217,Babysitter The (1995),Drama
-218,Boys on the Side (1995),Comedy
-219,Cure The (1995),Drama
-220,Castle Freak (1995),Horror
-222,Circle of Friends (1995),Drama
+215,Before Sunrise (1993),Drama
+216,Billy Madison (1993),Comedy
+217,Babysitter The (1993),Drama
+218,Boys on the Side (1993),Comedy
+219,Cure The (1993),Drama
+220,Castle Freak (1993),Horror
+222,Circle of Friends (1993),Drama
 223,Clerks (1994),Comedy
-224,Don Juan DeMarco (1995),Comedy
+224,Don Juan DeMarco (1993),Comedy
 225,Disclosure (1994),Drama
 227,Drop Zone (1994),Action
