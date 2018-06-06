@@ -42,22 +42,30 @@ public class MovieRentalService {
         return movie.split(",")[0];
     }
 
-    private String getFileName() throws IOException {
+    private String getFileName(String filePath) throws IOException {
         Properties prop = new Properties();
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         InputStream stream = loader.getResourceAsStream("dev.properties");
         prop.load(stream);
-        return prop.getProperty("MovieFilePath");
+        return prop.getProperty(filePath);
     }
 
     private List<Movie> loadMoviesFromFile() throws IOException {
         Random random = new Random();
-        String moviesFile = Paths.get("").toAbsolutePath().toString() + getFileName();
+        String moviesFile = Paths.get("").toAbsolutePath().toString() + getFileName("MovieFilePath");
 
         return Files.lines(Paths.get(moviesFile))
                 .skip(1)
                 .map(m -> new Movie(getMovieId(m), getMovieGenre(m), getMovieTitle(m), getMovieYear(m), random.nextBoolean()))
                 .sorted(Comparator.comparing(Movie::getTitle))
+                .collect(Collectors.toList());
+    }
+
+    private List<String> loadCommentFromFile() throws IOException {
+        String commentFile = Paths.get("").toAbsolutePath().toString() + getFileName("commentFilePath");
+        String[] content = (new String(Files.readAllBytes(Paths.get(commentFile)))).split("\\|");
+        return  Arrays.stream(content)
+                .map(m -> m)
                 .collect(Collectors.toList());
     }
 

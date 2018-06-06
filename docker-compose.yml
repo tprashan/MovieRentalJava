@@ -1,0 +1,14 @@
+version : '2.1'
+
+services:
+
+  rent_movies_backend:
+      container_name: rent_movies_backend
+      image: rent_movies_backend
+      build:
+        context: .
+        dockerfile: movie-rental.dockerfile
+      volumes:
+          - .:/var/www/rent_movies_backend
+      ports:
+        - 8080:8080
