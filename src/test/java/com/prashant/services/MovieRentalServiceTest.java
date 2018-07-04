@@ -1,6 +1,8 @@
 package com.prashant.services;
 
+import com.prashant.model.Comment;
 import com.prashant.model.Movie;
+import com.prashant.repositories.CommentRepository;
 import com.prashant.repositories.MovieRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +26,8 @@ public class MovieRentalServiceTest {
 
     @Mock
     private MovieRepository movieRepositoryMock;
+    @Mock
+    private CommentRepository commentRepositoryMock;
 
 
     @Test
@@ -51,6 +55,21 @@ public class MovieRentalServiceTest {
         int actualList = movieRentalService.insertMoviesIntoDBFromFile();
 
         assertEquals(movieList.size(), actualList);
+    }
+
+    @Test
+    public void shouldReturnNumberOfInsertedCommentsIntoDB() throws IOException {
+        Comment commentOne = new Comment("Recording artists who turn actors first");
+        Comment commentTwo = new Comment("Recording artists who turn actors second");
+        List<Comment> comments = new ArrayList<>();
+        comments.add(commentOne);
+        comments.add(commentTwo);
+
+        when(commentRepositoryMock.save(any(List.class))).thenReturn(comments);
+
+        int actualList = movieRentalService.insertCommentIntoDBFromFile();
+
+        assertEquals(comments.size(), actualList);
     }
 
     @Test

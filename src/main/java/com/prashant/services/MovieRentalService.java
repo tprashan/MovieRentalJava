@@ -1,6 +1,8 @@
 package com.prashant.services;
 
+import com.prashant.model.Comment;
 import com.prashant.model.Movie;
+import com.prashant.repositories.CommentRepository;
 import com.prashant.repositories.MovieRepository;
 import com.prashant.viewModels.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,12 @@ import java.util.stream.Collectors;
 public class MovieRentalService {
 
     private final MovieRepository movieRepository;
+    private final CommentRepository commentRepository;
 
     @Autowired
-    public MovieRentalService(MovieRepository movieRepository) {
+    public MovieRentalService(MovieRepository movieRepository, CommentRepository commentRepository) {
         this.movieRepository = movieRepository;
+        this.commentRepository = commentRepository;
     }
 
     private String getMovieGenre(String movie) {
@@ -61,11 +65,11 @@ public class MovieRentalService {
                 .collect(Collectors.toList());
     }
 
-    private List<String> loadCommentFromFile() throws IOException {
+    private List<Comment> loadCommentFromFile() throws IOException {
         String commentFile = Paths.get("").toAbsolutePath().toString() + getFileName("commentFilePath");
         String[] content = (new String(Files.readAllBytes(Paths.get(commentFile)))).split("\\|");
         return  Arrays.stream(content)
-                .map(m -> m)
+                .map(Comment::new)
                 .collect(Collectors.toList());
     }
 
@@ -86,6 +90,11 @@ public class MovieRentalService {
     public int insertMoviesIntoDBFromFile() throws IOException {
         List<Movie> rentalMovies = loadMoviesFromFile();
         return movieRepository.save(rentalMovies).size();
+    }
+
+    public int insertCommentIntoDBFromFile() throws IOException {
+       List<Comment> comments = loadCommentFromFile();
+       return commentRepository.save(comments).size();
     }
 
     public List getAllMoviesFromDB() {

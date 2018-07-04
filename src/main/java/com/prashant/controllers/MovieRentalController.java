@@ -34,6 +34,11 @@ public class MovieRentalController {
         return movieRentalService.insertMoviesIntoDBFromFile();
     }
 
+    @RequestMapping("/putComments")
+    public int insertComments() throws IOException {
+        return movieRentalService.insertCommentIntoDBFromFile();
+    }
+
     @RequestMapping("/allMoviesFromDb")
     public List getAllMoviesFromDB() {
         return movieRentalService.getAllMoviesFromDB();

@@ -71,6 +71,20 @@ public class MovieRentalControllerTest {
     }
 
     @Test
+    public void shouldGetTheNumberOfCommentsInserted() throws Exception {
+
+        when(movieRentalService.insertCommentIntoDBFromFile()).thenReturn(20);
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get("/putComments")
+                .accept(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        JSONAssert.assertEquals("20", result.getResponse().getContentAsString(), false);
+    }
+
+    @Test
     public void shouldGetTheListOfMoviesFromDB() throws Exception {
         List<Movie> movieList = new ArrayList<>();
         movieList.add(movie1);
