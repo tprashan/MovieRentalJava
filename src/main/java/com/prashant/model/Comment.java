@@ -14,6 +14,9 @@ public class Comment {
     @Column(name = "Comment")
     private String comment;
 
+    public Comment(){
+    }
+
     public Comment(String comment) {
         this.comment = comment;
     }

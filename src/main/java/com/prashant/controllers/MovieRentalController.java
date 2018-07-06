@@ -44,6 +44,11 @@ public class MovieRentalController {
         return movieRentalService.getAllMoviesFromDB();
     }
 
+    @RequestMapping("/comments")
+    public List getCommentsFromDB() {
+        return movieRentalService.getCommentsFromDB();
+    }
+
     @RequestMapping("/moviesbyGenre")
     public List getMoviesByGenre(@RequestParam(value = "genre") String genre) {
         return movieRentalService.findMovieByGenre(genre);

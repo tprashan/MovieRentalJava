@@ -101,6 +101,10 @@ public class MovieRentalService {
         return movieRepository.findAll();
     }
 
+    public List getCommentsFromDB() {
+        return commentRepository.findAll();
+    }
+
     public List findMovieByGenre(String genre) {
         return movieRepository.findMovieByGenre(genre);
     }
