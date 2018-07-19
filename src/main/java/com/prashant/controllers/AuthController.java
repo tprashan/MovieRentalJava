@@ -20,7 +20,7 @@ public class AuthController {
     @RequestMapping(
             value = "/signup",
             method = RequestMethod.POST)
-    public void process(@RequestBody Map<String, String> request) {
-        authService.addUser(request);
+    public String process(@RequestBody Map<String, String> request) {
+        return authService.addUser(request);
     }
 }

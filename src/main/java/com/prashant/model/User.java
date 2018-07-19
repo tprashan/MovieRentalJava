@@ -11,9 +11,9 @@ public class User {
     @Id
     @GeneratedValue()
     private String id;
-    @Column(name = "uname")
+    @Column(name = "uname", unique = true)
     private String username;
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String emailId;
     @Column(name = "password")
     private String password;
