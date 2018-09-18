@@ -1,10 +1,7 @@
 package com.prashant.controllers;
 
 import com.prashant.services.AuthService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -20,7 +17,12 @@ public class AuthController {
     @RequestMapping(
             value = "/signup",
             method = RequestMethod.POST)
-    public String process(@RequestBody Map<String, String> request) {
+    public String addUser(@RequestBody Map<String, String> request) {
         return authService.addUser(request);
     }
+
+    @RequestMapping(
+            value = "/authenticateUser",
+            method = RequestMethod.POST)
+    public Boolean verifyUser(@RequestBody Map<String, String> request) { return authService.isAuthenticated(request); }
 }

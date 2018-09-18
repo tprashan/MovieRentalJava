@@ -18,6 +18,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    public User(){}
+
     public User(String uname, String email, String password){
         this.username = uname;
         this.emailId = email;

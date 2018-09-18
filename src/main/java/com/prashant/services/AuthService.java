@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -28,5 +29,12 @@ public class AuthService {
             return "Not Saved";
         }
         return "Saved";
+    }
+
+    public Boolean isAuthenticated(Map<String, String> request) {
+        String userName = request.get("uname");
+        String password = request.get("password");
+        List<User> users =  userRepository.findUserByUsername(userName);
+        return users.size() > 0 && users.get(0).getUsername().equals(userName) && users.get(0).getPassword().equals(password);
     }
 }
